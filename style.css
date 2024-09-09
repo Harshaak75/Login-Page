@@ -1,0 +1,868 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+}
+
+.house{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+    position: relative;
+    border-radius: 20px;
+    transform-origin: center;
+    overflow: hidden;
+    animation: resize 1.8s forwards;
+}
+
+.house-img{
+    height: 100%;
+    width: 100%;
+    background-image: url("./images/house1.jpg");
+    background-size: 100% 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: translateX(60%);
+    border-radius: 20px;
+    animation: house-img 1.8s forwards, scaleDown 1s forwards 5s;
+}
+
+.house-img.fadeoutimg{
+    animation: fadeoutimg 1s;
+}
+
+.logo{
+    position: absolute;
+    left: 47%;
+    top: 46%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+
+    animation: logoStyle 1.2s forwards 2s, MovetotTopLeft 1s forwards 5s ;
+}
+
+.logo.fadeoutlogo{
+    animation: fadeoutlogo 1s forwards;
+}
+
+.logo-style{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.logo-style img{
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+
+    animation: image 1.5s forwards 2s ease-in-out;
+}
+
+
+/* heading */
+
+.heading{
+    position: absolute;
+    width: 52%;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5.3rem;
+    margin-top: 1rem;
+    padding-left: 5px;
+    /* display: none; */
+}
+
+.title{
+    opacity: 0;
+    font-size: 1.1rem;
+    animation: head 0.8s forwards 6.5s;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.title.fadeouttitle{
+    animation: fadeouttitle 0.2s forwards;
+}
+
+.mm{
+    width: 100%;
+    padding-right: 23px;
+}
+
+.new{
+    float: right;
+    opacity: 0;
+    animation: btn-info 0.8s forwards 7.2s;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: lightgrey;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle img {
+    width: 20px;
+    height: 20px;
+}
+
+.button{
+    opacity: 0;
+    width: 100px;
+    height: 30px;
+    border: 1px solid green;
+    align-items: center;
+    padding-left: 6%;
+    border-radius: 20px;
+    padding-top: 5%;
+    animation: btn 0.8s forwards 6.5s;
+    color: green;
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.button.fadeoutbtn{
+    animation: fadeoutbtn 0.2s forwards;
+}
+
+.new.fadeoutnew{
+    animation: fadeoutnew 0.2s forwards;    
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    left: 12%;
+    animation: footer 0.8s forwards 6.5s;
+    opacity: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer.fadeoutfooter{
+    animation: fadeoutfooter 0.2s forwards;
+}
+
+.footer1{
+    display: flex ;
+}
+
+.footer2{
+    display: flex ;
+}
+
+.page1{
+    width: 30%;
+    height: 80%;
+    /* background-color: red; */
+    position: absolute;
+    top: 18%;
+    left: 11%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: login-box 0.8s forwards 7.2s;
+    opacity: 0;
+}
+
+.inp{
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* gap: 18px; */
+}
+
+.input-group{
+    position: relative;
+    margin: 15px 0px;
+}
+
+.input-head{
+    margin-top: 5px;
+}
+
+.input-group label{
+    position: absolute;
+    top: 48%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    padding: 2 5px;
+    pointer-events: none;
+    transition: .5s;
+    /* padding-bottom: 10px; */
+    padding-left: 10px;
+}
+
+.input-group input{
+    width: 430px;
+    height: 60px;
+    font-size: 16px;
+    padding: 30px 15px;
+    background: transparent;
+    border: 1.2px solid lightblue;
+    outline: none;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: 10px;
+    font-size: 15px;
+}
+
+.input-group input:focus{
+   /* border: 2px solid green; */
+   border-color: green;
+   box-shadow: 3px 3px 3px lightgray;
+}
+
+.check-box{
+    display: flex;
+    gap: 5px;
+    position: relative;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.check-box label{
+    font-size: 1rem;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #000;  /* Border for the checkbox */
+     /* Slightly rounded corners */
+    width: 23px;
+    height: 23px;
+    /* padding-bottom: 3px; */
+    border-radius: 5px;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: '✓';      /* Unicode check mark */
+    font-size: 17px;   /* Adjust tick size */
+    color: green;      /* Tick color */
+    position: absolute;
+    top: 0;
+    left: 5px;
+    padding-bottom: 1px;
+  }
+  
+  /* Ensure no background fill when checked */
+  input[type="checkbox"]:checked {
+    background-color: transparent;  /* No fill */
+  }
+
+  .login-btn{
+    width: 98%;
+    height: 50px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    position: relative;
+    transition: .3s;
+  }
+
+  .login-btn.loading {
+    cursor: not-allowed;
+    color: transparent;
+  }
+
+  .login-btn.loading::after{
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 48%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.8s linear infinite;
+    margin-right: 35px;
+    margin-bottom: 20px;
+    /* transform: translate(-40%, -40%); */
+  }
+
+  @keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+  .login-footer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 25px;
+    color: green;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .dot{
+    position: relative;
+    /* top: 1px; */
+    bottom: 8px;
+    font-size: 30px;
+    color: lightgrey;
+  }
+
+  .fadeoutPage1{
+    animation: fadeoutPage1 0.1s forwards;
+  }
+
+  /* hover */
+
+  .options{
+    height: 150px;
+    width: 250px;
+    background-color: black;
+    position: absolute;
+    left: 40.5%;
+    top: 11%;
+    border-radius: 10px;
+    z-index: 5;
+    padding-bottom: 100px;
+    display: none;
+    transition: 5s;
+  }
+
+  .pointer{
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    float: right;
+    rotate: 45deg;
+    margin-right: 20px;
+    transition: 5s;
+  }
+
+  .list-head{
+    color: white;
+    padding-top: 15px;
+    padding-left: 10px;
+  }
+  .list-head p{
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  ul{
+    list-style-type: none;
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+
+  ul li{
+    color:white;
+    padding-top: 10px;
+    font-size: 0.7rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+
+  @media screen and (min-width: 300px) and (max-width: 450px) {
+
+    .house-img{
+    animation: house-img 1.8s forwards, hideing 1s forwards 5s;
+    }
+
+    .logo{
+        left: 38%;
+        top: 46%;
+    }
+
+    .logo-style{
+        width: 50px;
+        height: 50px;
+        margin-top: 0.8rem;
+    }
+
+    .logo-style img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .heading{
+        margin-left: 2.8rem;
+        padding-left: 1px;
+        /* display: none; */
+    }
+
+    .title{
+        font-size: 0.8rem;
+    }
+
+    .mm{
+        display: none;
+    }
+
+    .button{
+        width: 68px;
+        height: 26px;
+        padding-left: 10%;
+        padding-top: 15%;
+        font-size: 0.7rem;
+        margin-left: 15%;
+    }
+    .signup{
+        width: 100%;
+        padding-left: 75%;
+    }
+
+    .page1{
+        width: 80%;
+        height: 80%;
+        top: 18%;
+        left: 7%;
+    }
+
+    .input-group input{
+        width: 220px;
+    }
+
+
+
+    .input-group{
+        position: relative;
+        margin: 10px 0px;
+    }
+    
+    .input-head{
+        margin-top: 5px;
+        font-size: 0.65rem;
+    }
+
+    .footer{
+        font-size: 0.5rem;
+        left: 4%;
+    }
+
+    .login-footer{
+        margin-top: 10px;
+        font-size: 0.8rem;
+      }
+
+      .options{
+        height: 110px;
+        width: 170px;
+        left: 40%;
+      }
+    
+      .pointer{
+        height: 35px;
+        width: 35px;
+      }
+      .list-head p{
+        font-size: 0.45rem;
+      }
+    
+      ul li{
+        font-size: 0.5rem;
+      }
+
+  }
+
+  @media screen and (min-width: 450px) and (max-width: 768px) {
+
+    .logo-style{
+        width: 60px;
+        height: 60px;
+        margin-top: 0.5rem;
+    }
+
+    .logo-style img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .heading{
+        margin-left: 3.5rem;
+        padding-left: 1px;
+        /* display: none; */
+    }
+
+    .title{
+        font-size: 0.8rem;
+    }
+
+    .mm{
+        padding-right: 7px;
+    }
+    
+    .new{
+        font-size: 0.8rem;
+    }
+
+    .button{
+        width: 68px;
+        height: 26px;
+        padding-left: 6%;
+        padding-top: 7%;
+        font-size: 0.7rem;
+    }
+
+    .page1{
+        width: 50%;
+        height: 80%;
+        top: 18%;
+        left: 5%;
+    }
+
+    .input-group input{
+        width: 380px;
+    }
+
+    .footer{
+        font-size: 0.7rem;
+        left: 4%;
+    }
+
+    .login-footer{
+        margin-top: 10px;
+      }
+
+      .options{
+        height: 110px;
+        width: 170px;
+        left: 35%;
+      }
+    
+      .pointer{
+        height: 35px;
+        width: 35px;
+      }
+      .list-head p{
+        font-size: 0.45rem;
+      }
+    
+      ul li{
+        font-size: 0.5rem;
+      }
+  }
+
+  @media screen  and (max-width: 1024px) and (min-width: 770px){
+
+    .heading{
+        margin-left: 3.5rem;
+        padding-left: 20px;
+        /* display: none; */
+    }
+
+    .title{
+        font-size: 0.8rem;
+    }
+
+    .input-head{
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }.page1{
+        width: 45%;
+        height: 80%;
+        top: 18%;
+        left: 7%;
+    }
+
+    .login-footer{
+        margin-top: 10px;
+        font-size: 0.8rem;
+      }
+
+      .footer{
+        /* font-size: 0.5rem; */
+        left: 8%;
+    }
+
+    .options{
+        height: 140px;
+        width: 230px;
+        left: 36%;
+      }
+
+    .pointer{
+        height: 35px;
+        width: 35px;
+      }
+
+  }
+
+  @keyframes hideing{
+    0% {
+        /* width: 100%; */
+        transform: translateX(0); /* Starts at full width */
+    }
+
+    100% {
+        width: 100%;
+        /*Scale down to 50% width */
+        transform: translateX(100%); /* Move the image to center its 50% width */
+        object-fit: cover;
+    }
+}
+
+
+
+
+
+  @keyframes fadeoutPage1{
+    0%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(10px);
+        display: none;
+    }
+  }
+
+  @keyframes fadeoutfooter{
+    0%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(10px);
+        display: none;
+    }
+}
+
+
+@keyframes footer{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes login-box{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeoutnew{
+    0%{
+        opacity: 1;
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(10px);
+        display: none;
+    }
+}
+
+@keyframes btn-info{
+    0%{
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeouttitle{
+    0%{
+        opacity: 1;
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(-10px);
+        display: none;
+    }
+}
+
+@keyframes head{
+    0%{
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(10px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeoutbtn{
+    0%{
+        opacity: 1;
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(10px);
+        display: none;
+    }
+}
+
+@keyframes btn{
+    0%{
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+}
+
+@keyframes house-img{
+    0% {
+        transform: translateX(-25%); /* Start off-screen on the left */
+        opacity: 0; /* Initially invisible */
+    }
+    60% {
+        opacity: 1; /* Start fading in */
+    }
+    100% {
+        transform: translateX(0); /* Moves to its original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+@keyframes fadeoutlogo{
+    0% {
+        left: 47%;
+        top: 46%;
+        transform: translate(-50%, -50%) scale(1); /* Start at initial position */
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(2); /* Ends centered and full size */
+    }
+    100%{
+        display: none;
+    }
+}
+
+@keyframes image{
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2); /* Slightly overshoot */
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.95); /* Pull back a little */
+    }
+    100% {
+        transform: scale(1); /* Settle at the original size */
+        opacity: 1;
+    }
+}
+
+@keyframes resize{
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);  
+    }
+}
+
+
+@keyframes logoStyle{
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+ @keyframes fadeoutimg{
+    0% {
+        width: 100%;
+         transform: translateX(60%); 
+         object-fit: cover; 
+    } 
+    100% { 
+         width: 50%; 
+         transform: translateX(60%); 
+         object-fit: cover;   
+     } 
+ }  
+
+
+@keyframes scaleDown {
+    0% {
+        /* width: 100%; */
+        transform: translateX(0); /* Starts at full width */
+    }
+
+    100% {
+        width: 100%;
+        /*Scale down to 50% width */
+        transform: translateX(60%); /* Move the image to center its 50% width */
+        object-fit: cover;
+    }
+}
+
+@keyframes MovetotTopLeft {
+    0% {
+        left: 47%;
+        top: 46%;
+        transform: translate(-50%, -50%) scale(1); /* Start at initial position */
+    }
+    50% {
+        left: 5px;
+        top: 5px;
+        transform: translate(0, 0) scale(1.2); /* Move to target position and scale up */
+    }
+    75% {
+        left: 5px;
+        top: 5px;
+        transform: translate(0, 0) scale(0.9); /* Scale down */
+    }
+    100% {
+        left: 5px;
+        top: 5px;
+        transform: translate(0, 0) scale(1); /* Final position and scale */
+    }
+}
