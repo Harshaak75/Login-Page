@@ -36,27 +36,27 @@ function togglePassword() {
     }
 }
 
-// loginForm.addEventListener("submit", (e) =>{
-//     e.preventDefault();
+loginForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
 
-//     const onlineId = document.querySelector("#onlineId");
-//     const password = document.querySelector("#password");
-//     const rememberMe = document.querySelector("#rememberme");
+    const onlineId = document.querySelector("#onlineId");
+    const password = document.querySelector("#password");
+    const rememberMe = document.querySelector("#rememberme");
 
-//     // if(onlineId && password && rememberMe){
-//     //     button.classList.add("loading");
+    if(onlineId && password && rememberMe){
+        button.classList.add("loading");
 
-//     //     setTimeout(()=>{
-//     //         page1.classList.add("fadeoutPage1");
-//     //         para.classList.add("fadeoutnew");
-//     //         btn.classList.add("fadeoutbtn");
-//     //         title.classList.add("fadeouttitle");
-//     //         footer.classList.add("fadeoutfooter");
-//     //         img.classList.add("fadeoutimg");
-//     //         logo.classList.add("fadeoutlogo");
+        setTimeout(()=>{
+            page1.classList.add("fadeoutPage1");
+            para.classList.add("fadeoutnew");
+            btn.classList.add("fadeoutbtn");
+            title.classList.add("fadeouttitle");
+            footer.classList.add("fadeoutfooter");
+            img.classList.add("fadeoutimg");
+            logo.classList.add("fadeoutlogo");
 
 
-//     //         button.classList.remove("loading");
-//         },2000)
-//     }
+            button.classList.remove("loading");
+        },2000)
+    }
 })
